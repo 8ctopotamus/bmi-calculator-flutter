@@ -32,36 +32,30 @@ class _InputPageState extends State<InputPage> {
         children: <Widget>[
           Expanded(child: Row(
             children: <Widget>[
-              Expanded(child: GestureDetector(
-                onTap: () {
+              Expanded(child: ReusableCard(
+                colour: selectedGender == Gender.MALE ? activeCardColor : inactiveCardColor,
+                onPress: () {
                   setState(() {
                     selectedGender = Gender.MALE;
                   });
                 },
-                child: ReusableCard(
-                    colour: selectedGender == Gender.MALE ? activeCardColor : inactiveCardColor,
-                    cardChild: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        label: "MALE",
-                    ),
-                  ),
-              ),
-              ),
-              Expanded(child: GestureDetector(
-                onTap: () {
+                cardChild: IconContent(
+                  icon: FontAwesomeIcons.mars,
+                  label: "MALE",
+                ),
+              ),),
+              Expanded(child: ReusableCard(
+                colour: selectedGender == Gender.FEMALE ? activeCardColor : inactiveCardColor,
+                onPress: () {
                   setState(() {
                     selectedGender = Gender.FEMALE;
                   });
                 },
-                child: ReusableCard(
-                  colour: selectedGender == Gender.FEMALE ? activeCardColor : inactiveCardColor,
-                    cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: "FEMALE",
-                    ),
-                  ),
-              )
-              ),
+                cardChild: IconContent(
+                  icon: FontAwesomeIcons.venus,
+                  label: "FEMALE",
+                ),
+              ),),
             ]
           )),
           Expanded(child: ReusableCard(colour: activeCardColor)),
